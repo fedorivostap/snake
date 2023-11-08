@@ -40,3 +40,13 @@ class Snake:
     def right(self):
         if self.segments[0].heading() != 180:
             self.segments[0].setheading(to_angle=0)
+
+    def make_larger(self):
+        new_segment = Turtle(shape="square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(self.segments[-1].pos())
+        self.segments.append(new_segment)
+
+
+

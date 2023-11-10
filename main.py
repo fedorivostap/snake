@@ -38,10 +38,12 @@ while run_game:
         scoreboard.game_over()
         run_game = False
 
-    for segment_number in range(1, len(my_snake.segments) - 1):
-        if my_snake.segments[0].pos() == my_snake.segments[segment_number].pos():
-            scoreboard.game_over()
+    for segment in my_snake.segments:
+        if segment == my_snake.segments[0]:
+            pass
+        elif my_snake.segments[0].distance(segment) < 10:
             run_game = False
+            scoreboard.game_over()
             break
 
 screen.exitonclick()

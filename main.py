@@ -38,10 +38,8 @@ while run_game:
         scoreboard.game_over()
         run_game = False
 
-    for segment in my_snake.segments:
-        if segment == my_snake.segments[0]:
-            pass
-        elif my_snake.segments[0].distance(segment) < 10:
+    for segment in my_snake.segments[1:]:
+        if my_snake.segments[0].distance(segment) < 10:
             run_game = False
             scoreboard.game_over()
             break

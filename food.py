@@ -13,8 +13,8 @@ class Food(Turtle):
 
     def generate_food_piece(self):
         """Generate new food piece when snake eats it food"""
-        x_cor_food = random.randint(-280, 280)
-        y_cor_food = random.randint(-280, 280)
+        x_cor_food = random.randint(-250, 250)
+        y_cor_food = random.randint(-250, 250)
         self.goto(x_cor_food, y_cor_food)
 
 

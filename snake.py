@@ -48,5 +48,13 @@ class Snake:
         new_segment.goto(self.segments[-1].pos())
         self.segments.append(new_segment)
 
+    def restart_game(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000)
+            segment.clear()
+        self.segments = []
+        self.create_snake()
+
+
 
 

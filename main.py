@@ -28,6 +28,7 @@ while run_game:
     time.sleep(0.1)
     screen.update()
     my_snake.move()
+    scoreboard.display_score()
     if my_snake.segments[0].distance(snake_food) < 15:
         snake_food.generate_food_piece()
         scoreboard.increase_score()
@@ -35,13 +36,15 @@ while run_game:
 
     if (my_snake.segments[0].xcor() > 280 or my_snake.segments[0].xcor() < -280
             or my_snake.segments[0].ycor() > 280 or my_snake.segments[0].ycor() < -280):
-        scoreboard.game_over()
-        run_game = False
+        scoreboard.restart_game()
+        my_snake.restart_game()
+        # run_game = False
 
     for segment in my_snake.segments[1:]:
         if my_snake.segments[0].distance(segment) < 10:
-            run_game = False
-            scoreboard.game_over()
-            break
+            scoreboard.restart_game()
+            my_snake.restart_game()
+            # run_game = False
+            # break
 
 screen.exitonclick()
